@@ -8,11 +8,11 @@ class EnemyManager:
         self.enemies = []
         self.enemy_images = [ENEMY_1, ENEMY_2, ENEMY_3]
     
-    def update(self):
+    def update(self, game):
         self.add_enemy()
 
         for enemy in self.enemies:
-            enemy.update(self.enemies)
+            enemy.update(self.enemies, game)
 
     def draw(self, screen):
         for enemy in self.enemies:
