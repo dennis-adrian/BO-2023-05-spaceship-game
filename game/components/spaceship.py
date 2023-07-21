@@ -26,7 +26,8 @@ class Spaceship(Sprite):
             self.rect.y -= 10
         elif user_input[pygame.K_DOWN] and self.rect.bottom < SCREEN_HEIGHT:
             self.rect.y += 10
-        elif user_input[pygame.K_SPACE]:
+
+        if user_input[pygame.K_SPACE]:
             self.shoot(game.bullet_manager)
     
     def draw(self, screen):

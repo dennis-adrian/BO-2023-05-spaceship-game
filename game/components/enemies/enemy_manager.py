@@ -26,3 +26,6 @@ class EnemyManager:
 
             enemy = Enemy(image, speed_on_x, speed_on_y)
             self.enemies.append(enemy)
+
+    def reset(self):
+        self.enemies = []
