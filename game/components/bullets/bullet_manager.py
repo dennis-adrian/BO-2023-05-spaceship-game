@@ -11,7 +11,7 @@ class BulletManager:
 
             if bullet.rect.colliderect(game.player.rect) and bullet.owner == 'enemy':
                 if game.player.power_up_type != SHIELD_TYPE:
-                    game.increase_death_counter()
+                    game.death_counter.update()
                     game.playing = False
                     pygame.time.delay(500)
                     break
@@ -20,10 +20,10 @@ class BulletManager:
             bullet.update(self.player_bullets)
 
             for enemy in game.enemy_manager.enemies:
-                if bullet.rect.colliderect(enemy.rect):
+                if bullet.rect.colliderect(enemy.rect) and bullet in self.player_bullets:
                     game.enemy_manager.enemies.remove(enemy)
                     self.player_bullets.remove(bullet)
-                    game.increase_score()
+                    game.score.update()
 
     def draw(self, screen):
         for bullet in self.enemy_bullets:
